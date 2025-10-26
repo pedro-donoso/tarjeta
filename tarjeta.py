@@ -32,7 +32,7 @@ class TarjetaCredito:
         print(f"Límite de crédito: ${self.limite_credito:.2f}")
         print(f"Saldo a pagar: ${self.saldo_pagar:.2f}")
         print(f"Crédito disponible: ${credito_disponible:.2f}")
-        print(f"Tasa de interés: {self.interes * 100:.2f}%")
+        print(f"Tasa de interés: {self.intereses * 100:.2f}%")
         print("=" * 40)
 
         return self
