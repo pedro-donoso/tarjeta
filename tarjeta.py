@@ -15,4 +15,25 @@ class TarjetaCredito:
 
         return self
     
+    def pago(self, monto):
+        if monto <= self.saldo_pagar:
+            self.saldo_pagar -= monto
+            print(f"Pago de ${monto:.2f} realizado. Saldo restante: ${self.saldo_pagar:.2f}")
+        else:
+            print(f"El monto excede el saldo a pagar. Saldo actual: ${self.saldo_pagar}")
+
+        return self
+
+    def mostrar_info_tarjeta(self):
+        credito_disponible = self.limite_credito - self.saldo_pagar
+        print("=" * 40)
+        print("INFORMACIÓN DE TARJETA DE CRÉDITO")
+        print("=" * 40)
+        print(f"Límite de crédito: ${self.limite_credito:.2f}")
+        print(f"Saldo a pagar: ${self.saldo_pagar:.2f}")
+        print(f"Crédito disponible: ${credito_disponible:.2f}")
+        print(f"Tasa de interés: {self.interes * 100:.2f}%")
+        print("=" * 40)
+
+        return self
     
