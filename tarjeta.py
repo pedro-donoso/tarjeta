@@ -53,10 +53,10 @@ tarjeta2 = TarjetaCredito(limite_credito=5000, intereses=0.02)
 tarjeta3 = TarjetaCredito(limite_credito=2000, intereses=0.03)
 
 print("\n--- TARJETA 1 ---")
-tarjeta1.compra(800).compra(500).pago(300).cobrar_interes().mostrar_info_tarjeta()
+tarjeta1.compra(800).compra(500).pago(300).cobrar_interes().mostrar_info_tarjeta
 
 print("\n--- TARJETA 2 ---")
-tarjeta2.compra(1000).compra(800).compra(800).pago(600).pago(500).pago(400).cobrar_interes().mostrar_info_tarjeta()
+tarjeta2.compra(1000).compra(800).compra(800).pago(600).pago(500).pago(400).cobrar_interes().mostrar_info_tarjeta
 
 print("\n--- TARJETA 3 ---")
 tarjeta3.compra(400).compra(600).compra(500).compra(800).compra(300).mostrar_info_tarjeta()
