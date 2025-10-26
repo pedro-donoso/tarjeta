@@ -37,3 +37,14 @@ class TarjetaCredito:
 
         return self
     
+    def cobrar_interes(self):
+        if self.saldo_pagar > 0:
+            interes_cobrado = self.saldo_pagar * self.intereses
+            self.saldo_pagar += interes_cobrado
+            print(f"Interés cobrado: ${interes_cobrado:.2f}. Nuevo saldo: ${self.saldo_pagar:.2f}")
+        else:
+            print("No hay saldo pendiente. No se cobra intereses.")   
+
+        return self
+    
+    
