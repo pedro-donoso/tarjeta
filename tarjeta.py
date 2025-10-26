@@ -47,4 +47,8 @@ class TarjetaCredito:
 
         return self
     
-    
+print("CREANDO TARJETAS...\n")
+tarjeta1 = TarjetaCredito(limite_credito=3000, intereses=0.025)
+tarjeta2 = TarjetaCredito(limite_credito=5000, intereses=0.02)
+tarjeta3 = TarjetaCredito(limite_credito=2000, intereses=0.03)
+
