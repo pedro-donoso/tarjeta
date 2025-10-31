@@ -45,7 +45,9 @@ print(f"Nació {mi_tamagotchi.nombre}! Color: {mi_tamagotchi.color}")
 print(f"Estado inicial - Salud: {mi_tamagotchi.salud}, Felicidad: {mi_tamagotchi.felicidad}, Energia: {mi_tamagotchi.energia}\n")
 
 persona = Persona('Maria', 'González', mi_tamagotchi)
+print(f"{persona.nombre} {persona.apellido} adoptó a {mi_tamagotchi.nombre}!\n")
 
+print("--- Interacciones ---")
 persona.darle_comida()
 persona.curarlo()
 persona.jugar_con_tamagotchi()
