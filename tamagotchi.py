@@ -32,3 +32,12 @@ class Persona:
 
     def curarlo(self):
         self.tamagotchi.curar()
+
+mi_tamagotchi = Tamagotchi("Pipo", "azul")
+
+persona = Persona("Maria", "González", mi_tamagotchi)
+
+persona.darle_comida()
+persona.curarlo()
+persona.jugar_con_tamagotchi()
+
