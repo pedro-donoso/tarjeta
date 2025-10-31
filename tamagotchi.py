@@ -6,17 +6,15 @@ class Tamagotchi:
         self.felicidad = felicidad
         self.energia = energia
 
-
     def jugar(self):
         self.felicidad += 10
         self.salud -= 5
-
+        print(f"{self.nombre} jugó! Felicidad: {self.felicidad}, Salud: {self.salud}")
 
     def comer(self):
         self.felicidad += 5
         self.salud += 10
-
-
+        
     def curar(self):
         self.salud += 20
         self.felicidad -= 5
