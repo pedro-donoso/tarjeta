@@ -6,4 +6,8 @@ class Tamagotchi:
         self.felicidad = felicidad
         self.energia = energia
 
+    def jugar(self):
+        self.felicidad += 10
+        self.salud -= 5
+
     
