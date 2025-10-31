@@ -6,3 +6,11 @@ class Mascota:
     def info(self):
         return f"Soy una mascota llamada {self.nombre}"
     
+class Perro(Mascota):
+    def info(self):
+        return f"{self.nombre} (Perro)"
+    
+class Gato(Mascota):
+    def info(self):
+        return f"{self.nombre} (Gato)"
+    
