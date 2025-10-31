@@ -14,11 +14,12 @@ class Tamagotchi:
     def comer(self):
         self.felicidad += 5
         self.salud += 10
+        print(f"{self.nombre} comió! Felicidad: {self.felicidad}, Salud: {self.salud}")
         
     def curar(self):
         self.salud += 20
         self.felicidad -= 5
-
+        print(f"{self.nombre} fue curado! Felicidad: {self.felicidad}, Salud: {self.salud}")
 
 
 class Persona:
@@ -40,6 +41,8 @@ class Persona:
         self.tamagotchi.curar()
 
 mi_tamagotchi = Tamagotchi('Pipo', 'azul')
+print(f"Nació {mi_tamagotchi.nombre}! Color: {mi_tamagotchi.color}")
+print(f"Estado inicial - Salud: {mi_tamagotchi.salud}, Felicidad: {mi_tamagotchi.felicidad}, Energia: {mi_tamagotchi.energia}\n")
 
 persona = Persona('Maria', 'González', mi_tamagotchi)
 
