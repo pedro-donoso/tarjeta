@@ -14,3 +14,11 @@ class Gato(Mascota):
     def info(self):
         return f"{self.nombre} (Gato)"
     
+mascotas = [Perro("Max", 3), Gato("Luna", 2)]
+
+for mascota in mascotas:
+    print(mascota.info())
+    if isinstance(mascota, Perro):
+        print(" -Es un perro")
+    elif isinstance(mascota, Gato):
+        print(" - Es un gato")
