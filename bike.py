@@ -64,7 +64,7 @@ class SistemaBIKECITY:
                 
             reserva = Reserva(self.proximo_id, bici, cliente, horas)
             self.reservas[self.proximo_id] = reserva
-            bici.estado = "reservada"
+            bici.estado = 'reservada'
             self.proximo_id += 1
             logging.info(f"Reserva {reserva.id_reserva} creada")
             return reserva
@@ -74,6 +74,33 @@ class SistemaBIKECITY:
             raise
 
 
-        
+    def iniciar_uso(self, id_reserva):
+        try:
+            reserva = self.reservas.get(id_reserva)
+            if not reserva:
+                raise BikeCityError("Reserva no encontrada")
+            reserva.bicicleta.estado = "en_uso"
+            reserva.estado = "en_uso"
+            logging.info(f"Uso iniciado reserva {id_reserva}")
+        except Exception as e:
+            logging.error(f"Error: {e}")
+            raise
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     
