@@ -46,4 +46,34 @@ class SistemaBIKECITY:
             logging.error(f"Error: {e}")
             raise
 
+    def crear_reserva(self, id_bici, cliente, horas):
+        try:
+            if horas <= 0 or horas > 24:
+                raise BikeCityError("Horas inválidas")
+            
+            if id_bici not in self.bicicletas:
+                raise BikeCityError("Bicicleta no encontrada")
+            
+            bici = self.bicicletas[id_bici]
+            if bici.estado != "disponible":
+                raise BikeCityError("Bicicleta no disponible")
+            
+            for r in self.reservas.values():
+                if r.bicicleta.id_bicicleta == id_bici and r.estado == "activa":
+                    raise BikeCityError("Ya existe reserva activa")
+                
+            reserva = Reserva(self.proximo_id, bici, cliente, horas)
+            self.reservas[self.proximo_id] = reserva
+            bici.estado = "reservada"
+            self.proximo_id += 1
+            logging.info(f"Reserva {reserva.id_reserva} creada")
+            return reserva
+        
+        except Exception as e:
+            logging.error(f"Error en reserva: {e}")
+            raise
+
+
+        
+
     
