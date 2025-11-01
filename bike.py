@@ -1,5 +1,3 @@
-import datetime
-
 import logging
 
 logging.basicConfig(
@@ -79,8 +77,8 @@ class SistemaBIKECITY:
             reserva = self.reservas.get(id_reserva)
             if not reserva:
                 raise BikeCityError("Reserva no encontrada")
-            reserva.bicicleta.estado = "en_uso"
-            reserva.estado = "en_uso"
+            reserva.bicicleta.estado = 'en_uso'
+            reserva.estado = 'en_uso'
             logging.info(f"Uso iniciado reserva {id_reserva}")
         except Exception as e:
             logging.error(f"Error: {e}")
@@ -94,8 +92,8 @@ class SistemaBIKECITY:
                 raise BikeCityError("No se puede finalizar")
             
 
-            reserva.bicicleta.estado = "disponible"
-            reserva.estado = "completada"
+            reserva.bicicleta.estado = 'disponible'
+            reserva.estado = 'completada'
             logging.info(f"Uso finalizado: ${reserva.monto}, {km}km")
             return reserva.monto
         
@@ -107,7 +105,42 @@ class SistemaBIKECITY:
             print("Operación completada")
 
 
+    def obtener_disponibles(self):
+        return [b for b in self.bicicletas.values() if b.estado == 'disponible']
     
+
+    def reporte(self):
+        print("\n=== REPORTE BIKECITY ===")
+        print(f"Bicicletas: {len(self.bicicletas)}")
+        print(f"Disponibles: {len(self.obtener_disponibles())}")
+        for b in self.bicicletas.values():
+            print(f" {b.id_bicicleta} - {b.modelo} - {b.estado}")
+
+
+def demo():
+    sistema = SistemaBIKECITY()
+    try:
+        sistema.registrar_bicicleta('B001', 'Montaña', 5)
+        sistema.registrar_bicicleta('B002', 'Urbana', 4)
+
+        reserva = sistema.crear_reserva('B001', 'Juan', 2)
+        sistema.iniciar_uso(reserva.id_reserva)
+        monto = sistema.finalizar_uso(reserva.id_reserva, 10)
+        print(f"Monto: ${monto}")
+
+
+        sistema.reporte()
+
+
+    except Exception as e:
+        print(f"Error: {e}")
+    finally:
+        print("Demo finalizada")
+
+
+if __name__ == "__main__":
+    demo()
+
 
 
 
