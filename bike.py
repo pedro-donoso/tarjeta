@@ -19,4 +19,14 @@ class Bicicleta:
         self.precio_hora = precio_hora
         self.estado = 'disponible'  
 
- 
+
+class Reserva:
+    def __init__(self, id_reserva, bicicleta, cliente, horas):
+        self.id_reserva = id_reserva
+        self.bicicleta = bicicleta
+        self.cliente = cliente
+        self.horas = horas
+        self.estado = "activa"
+        self.monto = bicicleta.precio_hora * horas
+
+
