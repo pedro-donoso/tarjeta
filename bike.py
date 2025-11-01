@@ -87,7 +87,28 @@ class SistemaBIKECITY:
             raise
 
     
+    def finalizar_uso(self, id_reserva, km):
+        try:
+            reserva = self.reservas.get(id_reserva)
+            if not reserva or reserva.estado != "en_uso":
+                raise BikeCityError("No se puede finalizar")
+            
+
+            reserva.bicicleta.estado = "disponible"
+            reserva.estado = "completada"
+            logging.info(f"Uso finalizado: ${reserva.monto}, {km}km")
+            return reserva.monto
+        
+
+        except Exception as e:
+            logging.error(f"Error: {e}")
+            raise
+        finally:
+            print("Operación completada")
+
+
     
+
 
 
 
